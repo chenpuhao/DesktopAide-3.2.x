@@ -27,7 +27,6 @@
             <artifactId>flatlaf-intellij-themes</artifactId>
             <version>3.0</version>
         </dependency>
-
     </dependencies>
 
 </project>

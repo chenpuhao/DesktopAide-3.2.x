@@ -2,7 +2,6 @@ package CN.UI.FunctionUI;
 
 import CN.UI.FunctionPanel.CollationPanel;
 import CN.UI.FunctionPanel.qqPanel;
-import CN.UI.MainUI.MainUI;
 
 import javax.swing.*;
 import java.awt.*;
