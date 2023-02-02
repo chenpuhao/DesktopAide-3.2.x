@@ -42,9 +42,4 @@ public class Growth {
         readAppointedLineNumber(filePath,needReadLine);
         return result;
     }
-
-    public static void main(String[] args) throws IOException {
-        Growth growth = new Growth();
-        System.out.println(growth.growth());
-    }
 }

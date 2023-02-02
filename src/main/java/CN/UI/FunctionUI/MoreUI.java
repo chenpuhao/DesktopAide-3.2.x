@@ -1,12 +1,13 @@
 package CN.UI.FunctionUI;
 
 import CN.UI.FunctionPanel.CollationPanel;
-import CN.UI.FunctionPanel.qqPanel;
+import CN.UI.FunctionPanel.puppetPanel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 public class MoreUI extends JFrame {
    public MoreUI(){
@@ -16,7 +17,6 @@ public class MoreUI extends JFrame {
        this.setBounds((getScreenSize.width-600)/2,(getScreenSize.height-500)/2,600,500);
        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
        this.setResizable(false);
-       this.setType(JFrame.Type.UTILITY);
        JPanel moreUIPanel = new JPanel();
        moreUIPanel.setLayout(new BorderLayout());
        ImageIcon title = new ImageIcon("Icon/MoreUI/favicon.png");
@@ -33,7 +33,12 @@ public class MoreUI extends JFrame {
                moreUIPanel.removeAll();
                moreUIPanel.setLayout(new BorderLayout());
                moreUIPanel.add(leftSetting,BorderLayout.WEST);
-               CollationPanel collationPanel = new CollationPanel();
+               CollationPanel collationPanel;
+               try {
+                   collationPanel = new CollationPanel();
+               } catch (IOException ex) {
+                   throw new RuntimeException(ex);
+               }
                moreUIPanel.add(collationPanel,BorderLayout.CENTER);
                MoreUI.this.revalidate();
                MoreUI.this.repaint();
@@ -41,16 +46,21 @@ public class MoreUI extends JFrame {
        });
        leftSetting.add(collation);
        //添加QQ机器人设置
-       ImageIcon qqImage = new ImageIcon("Icon/MoreUI/qq.png");
-       JButton qq = new JButton("QQ机器人设置");
+       ImageIcon qqImage = new ImageIcon("Icon/MoreUI/hand.png");
+       JButton qq = new JButton("鼠标傀儡");
        qq.addMouseListener(new MouseAdapter() {
            @Override
            public void mouseClicked(MouseEvent e) {
                moreUIPanel.removeAll();
                moreUIPanel.setLayout(new BorderLayout());
                moreUIPanel.add(leftSetting,BorderLayout.WEST);
-               qqPanel qqpanel = new qqPanel();
-               moreUIPanel.add(qqpanel,BorderLayout.CENTER);
+               puppetPanel handPanel;
+               try {
+                   handPanel = new puppetPanel();
+               } catch (IOException ex) {
+                   throw new RuntimeException(ex);
+               }
+               moreUIPanel.add(handPanel,BorderLayout.CENTER);
                MoreUI.this.revalidate();
                MoreUI.this.repaint();
            }

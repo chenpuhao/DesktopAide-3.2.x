@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class MainUI extends JFrame {
+    public static         boolean isInCollation = false;
     public static JButton tablePet = new JButton();
     //获取X和Y值
     public static double X;
@@ -91,6 +92,19 @@ public class MainUI extends JFrame {
         //整理按钮
         ImageIcon collationImage = new ImageIcon("Icon/MainUI/function/collation.png");
         JButton collation = new JButton(collationImage);
+
+        collation.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(isInCollation){
+                    isInCollation = false;
+                    JOptionPane.showMessageDialog(null,"已成功关闭","整理功能",JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    isInCollation = true;
+                    JOptionPane.showMessageDialog(null,"已成功开启","整理功能",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        });
         collation.setContentAreaFilled(false);
         collation.setBorderPainted(false);
         //更多按钮
