@@ -1,9 +1,7 @@
 package CN.Function.Growth;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.LineNumberReader;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 public class Growth {
@@ -35,6 +33,10 @@ public class Growth {
         }
         if(!filePath.exists()){
             filePath.createNewFile();
+            FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+            fileOutputStream.write("0".getBytes(StandardCharsets.UTF_8));
+            fileOutputStream.flush();
+            fileOutputStream.close();
         }
         int needReadLine = 1;
         readAppointedLineNumber(filePath,needReadLine);
