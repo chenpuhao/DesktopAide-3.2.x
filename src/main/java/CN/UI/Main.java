@@ -35,6 +35,26 @@ public class Main {
         reader.close();
         in.close();
     }
+    public static String readToString(String fileName) {
+        String encoding = "UTF-8";
+        File file = new File(fileName);
+        long filelength = file.length();
+        byte[] filecontent = new byte[(int) filelength];
+        try {
+            FileInputStream in = new FileInputStream(file);
+            in.read(filecontent);
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            return new String(filecontent, encoding);
+        } catch (UnsupportedEncodingException e) {
+            System.err.println("The OS does not support " + encoding);
+            e.printStackTrace();
+            return null;
+        }
+    }
     public static void main(String[] args) throws IOException, InterruptedException {
         //使用look and feel
         FlatDarkLaf.setup();
@@ -146,6 +166,18 @@ public class Main {
                 fileOutputStream.write("0".getBytes(StandardCharsets.UTF_8));
                 fileOutputStream.flush();
                 fileOutputStream.close();
+                path = new File("C:\\Users\\"+userName+"\\.DesktopAide\\user");
+                filePath = new File(path+"\\success.da");
+                String result = readToString(String.valueOf(filePath));
+                if(!(result ==null)) {
+                    result = result + "\n" + successPlantInt + ".png";
+                }else{
+                    result = successPlantInt + ".png";
+                }
+                fileOutputStream = new FileOutputStream(filePath);
+                fileOutputStream.write(result.getBytes(StandardCharsets.UTF_8));
+                fileOutputStream.flush();
+                fileOutputStream.close();
             } else if (growthInt < 100 && growthInt >=50) {
                 petImage = new ImageIcon("Icon/MainUI/plant/growing/100of100.png");
             }else{
@@ -156,4 +188,5 @@ public class Main {
             mainUI.repaint();
         }
     }
+
 }

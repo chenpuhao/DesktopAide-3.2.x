@@ -108,6 +108,8 @@ public class HelloUI extends JFrame {
                         fileOutputStream.write(userNameField.getText().getBytes(StandardCharsets.UTF_8));
                         fileOutputStream.flush();
                         fileOutputStream.close();
+                        filePath = new File(folderPath + "\\success.da");
+                        filePath.createNewFile();
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }

@@ -3,6 +3,7 @@ package CN.UI.MainUI;
 
 import CN.Function.Growth.Growth;
 import CN.UI.FunctionUI.MoreUI;
+import CN.UI.FunctionUI.UserUI;
 import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.intellijthemes.FlatDarkFlatIJTheme;
@@ -48,7 +49,7 @@ public class MainUI extends JFrame {
         reader.close();
         in.close();
     }
-    public MainUI() throws IOException, InterruptedException {
+    public MainUI() {
 
         //获取toolkit
         Dimension getScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -210,6 +211,18 @@ public class MainUI extends JFrame {
         petPanel.add(petChat);
         ImageIcon petUserImage = new ImageIcon("Icon/MainUI/action/user.png");
         JButton petUser = new JButton(petUserImage);
+        petUser.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                UserUI userUI = null;
+                try {
+                    userUI = new UserUI();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                userUI.setVisible(true);
+            }
+        });
         petUser.setContentAreaFilled(false);
         petUser.setBorderPainted(false);
         petPanel.add(petUser);
