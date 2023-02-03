@@ -49,10 +49,7 @@ public class MainUI extends JFrame {
         in.close();
     }
     public MainUI() throws IOException, InterruptedException {
-        //使用look and feel
-        FlatDarkLaf.setup();
-        FlatDarculaLaf.setup();
-        FlatDarkFlatIJTheme.setup();
+
         //获取toolkit
         Dimension getScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
         //基本设置

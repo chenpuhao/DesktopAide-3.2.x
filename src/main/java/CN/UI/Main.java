@@ -3,7 +3,11 @@ package CN.UI;
 import CN.Function.Collation.Collation;
 import CN.Function.Growth.Growth;
 import CN.Function.Puppet.Puppet;
+import CN.UI.MainUI.HelloUI;
 import CN.UI.MainUI.MainUI;
+import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.intellijthemes.FlatDarkFlatIJTheme;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,6 +36,10 @@ public class Main {
         in.close();
     }
     public static void main(String[] args) throws IOException, InterruptedException {
+        //使用look and feel
+        FlatDarkLaf.setup();
+        FlatDarculaLaf.setup();
+        FlatDarkFlatIJTheme.setup();
         Map<String, String> map = System.getenv();
         String userName = map.get("USERNAME");
         File folderPath = new File("C:\\Users\\" + userName + "\\.DesktopAide\\collation");
@@ -74,6 +82,12 @@ public class Main {
             fileOutputStream.write("false".getBytes(StandardCharsets.UTF_8));
             fileOutputStream.flush();
             fileOutputStream.close();
+        }
+        folderPath = new File("C:\\Users\\" + userName + "\\.DesktopAide\\user");
+        filePath = new File(folderPath + "\\user.da");
+        if(!filePath.exists()){
+            HelloUI helloUI = new HelloUI();
+            helloUI.setVisible(true);
         }
         MainUI mainUI = new MainUI();
         mainUI.setVisible(true);
