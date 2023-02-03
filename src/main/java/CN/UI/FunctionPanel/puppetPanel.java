@@ -8,6 +8,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class puppetPanel extends JPanel {
     public static JRadioButton yes = new JRadioButton("开启");
     static String result;

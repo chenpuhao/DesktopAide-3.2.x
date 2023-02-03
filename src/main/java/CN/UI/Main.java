@@ -12,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Random;
 
+@SuppressWarnings({"ResultOfMethodCallIgnored", "InfiniteLoopStatement"})
 public class Main {
     static String result;
     static void readAppointedLineNumber(File sourceFile, int lineNumber)
@@ -31,6 +32,49 @@ public class Main {
         in.close();
     }
     public static void main(String[] args) throws IOException, InterruptedException {
+        Map<String, String> map = System.getenv();
+        String userName = map.get("USERNAME");
+        File folderPath = new File("C:\\Users\\" + userName + "\\.DesktopAide\\collation");
+        File filePath = new File(folderPath + "\\path.da");
+        if(!folderPath.exists()){
+            folderPath.mkdirs();
+        }
+        if (!filePath.exists()) {
+            try {
+                filePath.createNewFile();
+                FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+                String path = "C:\\Users\\" + userName + "\\Desktop";
+                fileOutputStream.write(path.getBytes(StandardCharsets.UTF_8));
+                fileOutputStream.flush();
+                fileOutputStream.close();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+        folderPath = new File("C:\\Users\\"+userName+"\\.DesktopAide\\growth");
+        filePath = new File(folderPath+"\\growth.da");
+        if(!folderPath.exists()) {
+            folderPath.mkdirs();
+        }
+        if(!filePath.exists()){
+            filePath.createNewFile();
+            FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+            fileOutputStream.write("0".getBytes(StandardCharsets.UTF_8));
+            fileOutputStream.flush();
+            fileOutputStream.close();
+        }
+        folderPath = new File("C:\\Users\\"+userName+"\\.DesktopAide\\puppet");
+        filePath = new File(folderPath+"\\puppet.da");
+        if(!folderPath.exists()) {
+            folderPath.mkdirs();
+        }
+        if(!filePath.exists()){
+            filePath.createNewFile();
+            FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+            fileOutputStream.write("false".getBytes(StandardCharsets.UTF_8));
+            fileOutputStream.flush();
+            fileOutputStream.close();
+        }
         MainUI mainUI = new MainUI();
         mainUI.setVisible(true);
         boolean puppetAlreadyVisible = false;
@@ -41,8 +85,8 @@ public class Main {
             }
             //鼠标傀儡
             int line = 1;
-            Map<String, String> map = System.getenv();
-            String userName = map.get("USERNAME");
+            map = System.getenv();
+            userName = map.get("USERNAME");
             File folderPath1 = new File("C:\\Users\\"+userName+"\\.DesktopAide\\puppet");
             File filePath1 = new File(folderPath1+"\\puppet.da");
             readAppointedLineNumber(filePath1,line);
@@ -68,7 +112,7 @@ public class Main {
             Growth growth = new Growth();
             int growthInt = Integer.parseInt(growth.growth());
             if (growthInt == 100) {
-                File folderPath = new File("Icon/MainUI/plant/success");
+                folderPath = new File("Icon/MainUI/plant/success");
                 File[] list = folderPath.listFiles();
                 int fileCount = 0;
                 assert list != null;
@@ -83,7 +127,7 @@ public class Main {
                 MainUI.tablePet.setIcon(petImage);
                 JOptionPane.showMessageDialog(null,"恭喜你种植成功，关闭此弹窗后将会进行下一轮的种植，种植记录可在用户界面查看","种植成功",JOptionPane.PLAIN_MESSAGE,petImage);
                 File path = new File("C:\\Users\\"+userName+"\\.DesktopAide\\growth");
-                File filePath = new File(path+"\\growth.da");
+                filePath = new File(path+"\\growth.da");
                 FileOutputStream fileOutputStream = new FileOutputStream(filePath);
                 fileOutputStream.write("0".getBytes(StandardCharsets.UTF_8));
                 fileOutputStream.flush();
