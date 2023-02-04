@@ -44,7 +44,7 @@ public class HelloUI extends JFrame {
         panel2.add(introduceNext);
         //介绍1
         JPanel panel3 = new JPanel();
-        JTextArea introduce1 = new JTextArea("         信了?这么小的窗口怎么可能装下那么多文字\n使用方法到[设置（倒数第二个按钮）]-[使用方法]处查看");
+        JTextArea introduce1 = new JTextArea("         信了?这么小的窗口怎么可能装下那么多文字\n使用方法查看pdf文件，在安装目录下的Documents里面");
         panel3.setLayout(new BorderLayout());
         panel3.add(introduce1);
         introduce1.setEditable(false);
