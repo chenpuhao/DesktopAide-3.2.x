@@ -50,6 +50,8 @@ public class UserUI extends JFrame {
         this.setBounds((getDesktopSize.width - 300) / 2, (getDesktopSize.height - 500) / 2, 300, 500);
         this.setDefaultCloseOperation(HIDE_ON_CLOSE);
         this.setLayout(new BorderLayout());
+        this.setResizable(false);
+        this.setType(JFrame.Type.UTILITY);
         //用户姓名
         Map<String, String> map = System.getenv();
         String userName = map.get("USERNAME");

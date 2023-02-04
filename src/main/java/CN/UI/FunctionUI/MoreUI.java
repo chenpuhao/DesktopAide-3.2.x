@@ -1,6 +1,7 @@
 package CN.UI.FunctionUI;
 
 import CN.UI.FunctionPanel.CollationPanel;
+import CN.UI.FunctionPanel.FindPanel;
 import CN.UI.FunctionPanel.puppetPanel;
 
 import javax.swing.*;
@@ -25,8 +26,10 @@ public class MoreUI extends JFrame {
        moreUIPanel.setLayout(new BorderLayout());
        ImageIcon title = new ImageIcon("Icon/MoreUI/favicon.png");
        this.setIconImage(title.getImage());
+       JScrollPane jsp = new JScrollPane();
        JPanel leftSetting = new JPanel();
-       leftSetting.setLayout(new GridLayout(2,1));
+       jsp.setViewportView(leftSetting);
+       leftSetting.setLayout(new GridLayout(3,1));
        //添加整理的设置
        ImageIcon collationImage = new ImageIcon("Icon/MoreUI/collation.png");
        JButton collation = new JButton("整理设置");
@@ -71,7 +74,25 @@ public class MoreUI extends JFrame {
        });
        qq.setIcon(qqImage);
        leftSetting.add(qq);
-       moreUIPanel.add(leftSetting,BorderLayout.WEST);
+       //查找文件
+       ImageIcon searchImage = new ImageIcon("Icon/MoreUI/search.png");
+       JButton search = new JButton("查找文件");
+       search.addMouseListener(new MouseAdapter() {
+           @Override
+           public void mouseClicked(MouseEvent e) {
+               moreUIPanel.removeAll();
+               moreUIPanel.setLayout(new BorderLayout());
+               moreUIPanel.add(leftSetting,BorderLayout.WEST);
+               FindPanel findPanel;
+               findPanel = new FindPanel();
+               moreUIPanel.add(findPanel,BorderLayout.CENTER);
+               MoreUI.this.revalidate();
+               MoreUI.this.repaint();
+           }
+       });
+       search.setIcon(searchImage);
+       leftSetting.add(search);
+       moreUIPanel.add(jsp,BorderLayout.WEST);
        this.add(moreUIPanel);
    }
 }
