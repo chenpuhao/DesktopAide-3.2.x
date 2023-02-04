@@ -3,7 +3,11 @@ package CN.Function.Growth;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
-
+/**
+ * @version 3.2.x
+ * @author chenpuhao
+ * @Date 2023/2/4
+ */
 public class Growth {
     static String result;
     static void readAppointedLineNumber(File sourceFile, int lineNumber)

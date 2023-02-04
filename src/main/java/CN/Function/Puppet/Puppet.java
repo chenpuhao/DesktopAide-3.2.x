@@ -6,7 +6,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+/**
+ * @version 3.2.x
+ * @author chenpuhao
+ * @Date 2023/2/4
+ */
 public class Puppet extends JFrame {
     static double X;
     static double Y;

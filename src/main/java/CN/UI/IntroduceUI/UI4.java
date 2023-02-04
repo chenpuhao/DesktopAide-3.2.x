@@ -6,7 +6,11 @@ import com.formdev.flatlaf.intellijthemes.FlatDarkFlatIJTheme;
 
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * @version 3.2.x
+ * @author chenpuhao
+ * @Date 2023/2/4
+ */
 public class UI4 extends JFrame {
     public UI4(){
 

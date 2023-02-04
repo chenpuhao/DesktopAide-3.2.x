@@ -2,7 +2,11 @@ package CN.Function.Collation;
 
 import java.io.*;
 import java.util.Map;
-
+/**
+ * @version 3.2.x
+ * @author chenpuhao
+ * @Date 2023/2/4
+ */
 public class Collation {
     static String name;
     static String data;

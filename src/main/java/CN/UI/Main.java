@@ -16,6 +16,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Random;
 
+/**
+ * @version 3.2.x
+ * @author chenpuhao
+ * @Date 2023/2/4
+ */
+
 @SuppressWarnings({"ResultOfMethodCallIgnored", "InfiniteLoopStatement"})
 public class Main {
     static String result;

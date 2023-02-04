@@ -7,7 +7,11 @@ import java.awt.event.MouseEvent;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
-
+/**
+ * @version 3.2.x
+ * @author chenpuhao
+ * @Date 2023/2/4
+ */
 public class CollationPanel extends JPanel {
     static String data;
     static void readAppointedLineNumber(File sourceFile, int lineNumber)

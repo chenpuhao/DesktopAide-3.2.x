@@ -16,7 +16,11 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Random;
-
+/**
+ * @version 3.2.x
+ * @author chenpuhao
+ * @Date 2023/2/4
+ */
 public class MainUI extends JFrame {
     public static         boolean isInCollation = false;
     public static JButton tablePet = new JButton();
